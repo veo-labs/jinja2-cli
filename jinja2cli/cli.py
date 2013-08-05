@@ -119,8 +119,9 @@ def cli(opts, args):
         key, value = define.split('=')
         data[key] = value
 
-    env = Environment(loader=FileSystemLoader(os.getcwd()))
-    sys.stdout.write(env.get_template(args[0]).render(data).encode('utf-8'))
+    template_path = os.path.abspath(args[0])
+    env = Environment(loader=FileSystemLoader(os.path.dirname(template_path)))
+    sys.stdout.write(env.get_template(os.path.basename(template_path)).render(data).encode('utf-8'))
     sys.exit(0)
 
 
