@@ -33,6 +33,11 @@ setup(
             'jinja2 = jinja2cli:main',
         ]
     },
+    options={
+        'build_scripts': {
+            'executable': '/usr/bin/python',
+        },
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
